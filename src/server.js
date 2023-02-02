@@ -11,15 +11,14 @@ const userRoute = require('./routes/userRoute');
 const cartRoute = require('./routes/cartRoute');
 const commentRoute = require('./routes/commentRoute');
 
-app.use(cors({ origin: process.env.ORIGIN, credentials: true }));
+app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
 
-app.set('trust proxy', 1);
 var oneDay = 60 * 60 * 24 * 1000;
 app.use(session({
     secret: process.env.SESSION_SECRET,
-    resave: false,
+    resave: true,
     saveUninitialized: false,
-    cookie: { secure: false, maxAge: oneDay }
+    cookie: { httpOnly: false, maxAge: oneDay }
 }));
 
 app.use(express.json());

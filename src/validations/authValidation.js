@@ -4,11 +4,6 @@ exports.verifyRegister = (req, res, next) => {
         return;
     }
 
-    if(typeof req.body.age !== 'number'){
-        res.status(400).json({ status: 'Failed', message: 'Age must be a number!' });
-        return;
-    }
-
     var username = req.body.username;
     var pattern = /[a-zA-Z0-9]{3,}/;
     var isAlphanumeric = pattern.test(username);

@@ -4,16 +4,6 @@ exports.validateStore = (req, res, next) => {
         return;
     }
 
-    if(typeof req.body.value !== 'number'){
-        res.status(400).json({ status: 'Failed', message: 'Value must be a number' });
-        return;
-    }
-
-    if(typeof req.body.quantity !== 'number'){
-        res.status(400).json({ status: 'Failed', message: 'Quantity must be a number' });
-        return;
-    }
-
     var pattern = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/;
     var isURI = pattern.test(req.body.imgLink);
 

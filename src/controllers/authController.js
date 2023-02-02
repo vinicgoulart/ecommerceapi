@@ -50,7 +50,6 @@ exports.change_pass = async (req, res) => {
 
     try{
         var user = await userSchema.findOne(query);
-        console.log(user);
 
         if(!user.password){
             res.send(404).json({ status: 'Failed', message: 'User not found!' });
@@ -66,6 +65,15 @@ exports.change_pass = async (req, res) => {
         res.status(400).json({ status: 'Failed', message: error.message });
     }
 };
+
+exports.returnInfo = (req, res) => {
+    const info = {
+        id: req.session._id,
+        name: req.session.name,
+        isAdmin: req.session.isAdmin
+    }
+    res.status(200).json({ status: 'Success', info: info });
+}
 
 exports.logout = (req, res) => {
     try{
