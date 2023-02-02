@@ -32,3 +32,6 @@ To delete a cart, DELETE to => /cart/delete-cart/:idCart. <br/>
 To retrieve comments from an item, GET to => /comment/:idItem. <br/>
 To create a comment, POST to => /comment/:idItem. <br/>
 To delete a comment, DELETE to => /comment/:idItem. <br/>
+
+## Frontend version
+You can find the frontend version [here](https://github.com/vinicgoulart/ecommercefront).
