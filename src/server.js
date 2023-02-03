@@ -4,12 +4,17 @@ const app = express();
 const mongoose = require('mongoose');
 const session = require('express-session');
 const cors = require('cors');
+const helmet = require('helmet');
 
 const authRoute = require('./routes/authRoute');
 const itemRoute = require('./routes/itemRoute');
 const userRoute = require('./routes/userRoute');
 const cartRoute = require('./routes/cartRoute');
 const commentRoute = require('./routes/commentRoute');
+
+app.use(helmet());
+
+app.disable('x-powered-by');
 
 app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
 
